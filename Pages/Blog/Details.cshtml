@@ -1,0 +1,24 @@
+﻿@page "/blog/xembaiviet/{id:int}"
+@model RazorWeb.Pages_Blog.DetailsModel
+
+@{
+    ViewData["Title"] = Model.Article.Title;
+}
+
+<h1>@Model.Article.Title</h1>
+<h2> Ngày viết: @Html.DisplayFor(model => model.Article.Created)</h2>
+<div>
+    <hr />
+    <dl class="row">       
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Article.Content)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Article.Content)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Article.Id">Sửa</a> |
+    <a asp-page="./Index">Danh sách bài viết</a>
+</div>
